@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-          has_many :chat_rooms, dependent: :destroy
+has_many :chat_rooms, dependent: :destroy
 has_many :messages, dependent: :destroy
 end
-#you were trying to figure out how to setup devise contollers and helpers
+def name
+  email.split('@')[0]
+end
