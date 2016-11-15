@@ -15,9 +15,11 @@ class ChatRoomsController < ApplicationController
     else
       render 'new'
     end
+  end
+
   def show
-  @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
-  @message = Message.new
+    @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+    @message = Message.new
   end
 
   private
